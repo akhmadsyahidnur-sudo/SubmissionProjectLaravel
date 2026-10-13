@@ -82,3 +82,9 @@ Route::permanentRedirect('/katalog-lama', '/info');
 Route::fallback(function () { 
     return response('Maaf, halaman yang Anda cari tidak tersedia.', 404); 
 }); 
+
+use App\Http\Controllers\ProdukController;
+
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+Route::resource('produk-resource', ProdukController::class);
