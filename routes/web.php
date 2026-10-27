@@ -1,6 +1,9 @@
 <?php 
   
 use Illuminate\Support\Facades\Route; 
+
+// KODE TAMBAHAN YANG WAJIB ADA:
+use App\Http\Controllers\ProductController;
   
 Route::get('/', function () { 
     return view('welcome'); 
@@ -94,3 +97,5 @@ use App\Http\Controllers\MahasiswaController;
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
 Route::get('/mahasiswa', [MahasiswaController::class, 'daftar'])->name('mahasiswa.daftar');
 Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'detail'])->name('mahasiswa.detail');
+
+Route::get('/products',[ProductController::class,'index']);
